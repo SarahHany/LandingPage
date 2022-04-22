@@ -41,14 +41,13 @@ const sections = document.querySelectorAll("section");
 
 // build the nav bar with the sections dynamically
 function navBuild() {
-    //empty string variable to add the sections later on
+  //empty string variable to add the sections later on
   let navigationItems = "";
-  //loop over each section in all sections 
+  //loop over each section in all sections
   for (section of sections) {
-      //create li element with anchor tag 
+    //create li element with anchor tag
     navigationItems = document.createElement("li");
     navigationItems.innerHTML = `<a href= "#${section.id}" data-nav="${section.id}" class="menu__link">${section.dataset.nav}</a>`;
-
 
     //append the section to the navigation bar
     navBar.appendChild(navigationItems);
@@ -70,19 +69,18 @@ const position = (section) => {
 //function to Check if we should activate ActiveClass or remove it
 function ActiveClass() {
   for (section of sections) {
-    let linkToSection = navBar.querySelector(`[data-nav=${section.id}]`);
+    const linkToSection = navBar.querySelector(`[data-nav=${section.id}]`);
 
     //check if section within the size
     if (position(section) < 250 && position(section) >= -250) {
       // for(let counter=0; counter<=sections.length;counter++){
-      //     var h2Colored = document.getElementsByTagName("h2")[counter];
+      //     const h2Colored = document.getElementsByTagName("h2")[counter];
       //
       // }
 
-      // var h2Colored = document.getElementsByTagName("h2")[counter];
+      // const h2Colored = document.getElementsByTagName("h2")[counter];
       // // h2Colored = h2Colored.innerText;
       // console.log(h2Colored);
-
 
       //Activate Active Class
       section.classList.add("your-active-class");
@@ -101,9 +99,8 @@ function ActiveClass() {
       // h2Color.style.cssText="color:yellow";
       //    section.style.textDecorationColor="red";
       // section.querySelectorAll("h2").style.backgroundColor="yellow";
-
     } else {
-        //Remove Activate Class
+      //Remove Activate Class
       section.classList.remove("your-active-class");
       //Remove Section Active Link
       linkToSection.classList.remove("active-Link");
@@ -118,26 +115,25 @@ function ActiveClass() {
           </div>`;
     }
   }
-};
+}
 
 //Call listener on Scrolling
 document.addEventListener("scroll", ActiveClass);
 
-
 //Scrolling to specified Section using another way
 navBar.addEventListener("click", (e) => {
-    //preventing default way
+  //preventing default way
   e.preventDefault();
-  //Check if it is the specified Section on navBar 
+  //Check if it is the specified Section on navBar
   if (e.target.dataset.nav) {
-      //Scroll into the section with the smooth behaviour
-    document
-      .getElementById(`${e.target.dataset.nav}`)
-      .scrollIntoView({ behavior: "smooth" });
+    //Scroll into the section with the smooth behaviour
+    document.getElementById(`${e.target.dataset.nav}`).scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
 });
-
-
 
 // const scrollToSection=()=>{
 //     const x = document.querySelectorAll(".navbar__menu");

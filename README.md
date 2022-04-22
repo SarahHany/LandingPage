@@ -4,6 +4,7 @@
 
 - [Instructions](#instructions)
 
+
 ## Instructions
 
 Basically this is my first complete project using some HTML and CSS styling in addition to JavaScript to display a version of a Landing Page.
@@ -21,4 +22,4 @@ navigation bar or scrolling to the section immediately.
 
 The layout of the page was created responsively to be used across all devices.
 
-Comments were added before each line code to ease the process of reading.
+Comments were added before each line code to ease the process of reading and understanding the code.
